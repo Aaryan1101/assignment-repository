@@ -57,13 +57,23 @@ body {
   background: white;
 }
 
-.task-table {
-  width: 100%;
-  border-collapse: collapse;
+.task-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   background: white;
   border-radius: 6px;
-  overflow: hidden;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.task-table-scroll:focus-visible {
+  outline: 2px solid #777;
+  outline-offset: 2px;
+}
+
+.task-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
 }
 
 .task-table th {
@@ -161,4 +171,15 @@ body {
 .pagination button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .controls {
+    flex-direction: column;
+  }
+
+  .search-input,
+  .status-filter {
+    width: 100%;
+  }
 }
